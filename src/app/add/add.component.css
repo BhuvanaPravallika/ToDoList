@@ -1,0 +1,19 @@
+/* add.component.css */
+.form-container {
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label, input, select, textarea {
+    margin: 10px 0;
+  }
+  
+  button {
+    margin-top: 20px;
+  }
+  

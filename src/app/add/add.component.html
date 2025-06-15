@@ -1,0 +1,20 @@
+<div class="form-container">
+  <h2>Add New Task</h2>
+  <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+    
+    <label for="taskName">Task Name:</label>
+    <input id="taskName" [(ngModel)]="task.taskName" name="taskName" required />
+
+    <label for="taskDescription">Task Description:</label>
+    <textarea id="taskDescription" [(ngModel)]="task.taskDescription" name="taskDescription" required></textarea>
+
+    <label for="taskStatus">Task Status:</label>
+    <select id="taskStatus" [(ngModel)]="task.taskStatus" name="taskStatus">
+      <option value="Pending">Pending</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
+    </select>
+
+    <button type="submit">Add Task</button>
+  </form>
+</div>

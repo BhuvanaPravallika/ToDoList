@@ -1,0 +1,94 @@
+<div class="top-buttons">
+  <button class="nav-btn" routerLink="/register">Register</button>
+  <button class="nav-btn" routerLink="/login">Login</button>
+</div>
+
+<h2>Register yourself on Task App</h2>
+
+<div class="main-container">
+  <!-- Image Section -->
+  <div class="image-container">
+    <img src="https://plus.unsplash.com/premium_photo-1683309568772-57011d6c1b7b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGFza3N8ZW58MHx8MHx8fDA%3D" alt="image">
+  </div>
+
+  <!-- Form Section -->
+  <div class="container">
+    <div class="icon-container">
+      <h3><i class="fa-solid fa-circle-user fa-3x"></i></h3>
+    </div>
+
+    <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)" novalidate>
+      <!-- First Name Field -->
+      <label for="fname">First Name</label>
+      <input
+        type="text"
+        name="fname"
+        [(ngModel)]="user.fname"
+        required
+        minlength="3"
+        #fname="ngModel"
+        [ngClass]="{ 'error': fname.invalid && (fname.touched || formRef.submitted) }"
+      />
+      <div *ngIf="fname.invalid && (fname.touched || formRef.submitted)" class="error-text">
+        <small *ngIf="fname.errors?.['required']" style="color: red;">First name is required.</small>
+        <small *ngIf="fname.errors?.['minlength']" style="color: red;">First name must be at least 3 characters.</small>
+      </div>
+      <br />
+
+      <!-- Last Name Field -->
+      <label for="lname">Last Name</label>
+      <input
+        type="text"
+        name="lname"
+        [(ngModel)]="user.lname"
+        required
+        minlength="3"
+        #lname="ngModel"
+        [ngClass]="{ 'error': lname.invalid && (lname.touched || formRef.submitted) }"
+      />
+      <div *ngIf="lname.invalid && (lname.touched || formRef.submitted)" class="error-text">
+        <small *ngIf="lname.errors?.['required']" style="color: red;">Last name is required.</small>
+        <small *ngIf="lname.errors?.['minlength']" style="color: red;">Last name must be at least 3 characters.</small>
+      </div>
+      <br />
+
+      <!-- Username (Email) Field -->
+      <label for="uname">Email</label>
+      <input
+        type="email"
+        name="uname"
+        [(ngModel)]="user.email"
+        required
+        email
+        #uname="ngModel"
+        [ngClass]="{ 'error': uname.invalid && (uname.touched || formRef.submitted) }"
+      />
+      <div *ngIf="uname.invalid && (uname.touched || formRef.submitted)" class="error-text">
+        <small *ngIf="uname.errors?.['required']" style="color: red;">Username (Email) is required.</small>
+        <small *ngIf="uname.errors?.['email']" style="color: red;">Please enter a valid email address.</small>
+      </div>
+      <br />
+
+      <!-- Password Field -->
+      <label for="pwd">Password</label>
+      <input
+        type="password"
+        name="pwd"
+        [(ngModel)]="user.password"
+        required
+        minlength="6"
+        #pwd="ngModel"
+        [ngClass]="{ 'error': pwd.invalid && (pwd.touched || formRef.submitted) }"
+      />
+      <div *ngIf="pwd.invalid && (pwd.touched || formRef.submitted)" class="error-text">
+        <small *ngIf="pwd.errors?.['required']" style="color: red;">Password is required.</small>
+        <small *ngIf="pwd.errors?.['minlength']" style="color: red;">Password must be at least 6 characters.</small>
+      </div>
+      <br />
+
+      <!-- Submit Button -->
+      <button id="btn" type="submit" [disabled]="!formRef.valid">Submit</button>
+    </form>
+  </div>
+</div>
+

@@ -1,0 +1,44 @@
+<div class="profile-container">
+    <div class="top-right">
+      <button class="back-home" (click)="goHome()">Back to Home</button>
+    </div>
+  
+    <!-- Centered "User Profile" Text -->
+    <h2>User Profile</h2>
+  
+    <div *ngIf="userProfile" class="profile-content">
+      <div *ngIf="!isEditMode">
+        <p><strong>First Name:</strong> {{ userProfile.fname }}</p>
+        <p><strong>Last Name:</strong> {{ userProfile.lname }}</p>
+        <p><strong>Email:</strong> {{ userProfile.email }}</p>
+        <p><strong>Phone:</strong> {{ userProfile.phoneNumber }}</p>
+        <p><strong>Address:</strong> {{ userProfile.address }}</p>
+        <button class="edit" class="btn btn-primary" (click)="onEdit()">Edit</button>
+      </div>
+  
+      <div *ngIf="isEditMode">
+        <label for="fname">First Name:</label>
+        <input id="fname" [(ngModel)]="userProfile.fname" type="text" />
+  
+        <label for="lname">Last Name:</label>
+        <input id="lname" [(ngModel)]="userProfile.lname" type="text" />
+  
+        <label for="email">Email:</label>
+        <input id="email" [(ngModel)]="userProfile.email" type="email" />
+  
+        <label for="phone">Phone:</label>
+        <input id="phone" [(ngModel)]="userProfile.phoneNumber" type="text" />
+  
+        <label for="address">Address:</label>
+        <input id="address" [(ngModel)]="userProfile.address" type="text" />
+  
+        <button class="save" (click)="updateProfile()">Save</button>
+        <button class="cancel" (click)="cancelEdit()">Cancel</button>
+      </div>
+    </div>
+  
+    <div class="profile-image">
+      <img src="https://th.bing.com/th/id/OIP.F7AAZ51YNslUUrejRKkDeQHaE1?w=275&h=180&c=7&r=0&o=7&cb=iwp1&dpr=1.3&pid=1.7&rm=3" alt="User Profile Image" />
+    </div>
+  </div>
+  

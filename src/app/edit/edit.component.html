@@ -1,0 +1,52 @@
+<div *ngIf="taskToEdit" class="edit-task-container">
+  <h2 class="text-center mb-4">Edit Task</h2>
+  
+  <!-- Form to Edit Task -->
+  <form (ngSubmit)="onSubmit()" class="task-form">
+    
+    <!-- Task Name Field -->
+    <div class="form-group mb-3">
+      <label for="taskName">Task Name:</label>
+      <input
+        id="taskName"
+        [(ngModel)]="taskToEdit.taskName"
+        name="taskName"
+        required
+        class="form-control"
+        placeholder="Enter task name"
+      />
+    </div>
+
+    <!-- Task Description Field -->
+    <div class="form-group mb-3">
+      <label for="taskDescription">Task Description:</label>
+      <textarea
+        id="taskDescription"
+        [(ngModel)]="taskToEdit.taskDescription"
+        name="taskDescription"
+        class="form-control"
+        placeholder="Enter task description"
+      ></textarea>
+    </div>
+
+    <!-- Task Status Field -->
+    <div class="form-group mb-3">
+      <label for="taskStatus">Task Status:</label>
+      <select
+        id="taskStatus"
+        [(ngModel)]="taskToEdit.taskStatus"
+        name="taskStatus"
+        class="form-control"
+      >
+        <option value="Pending">Pending</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Completed">Completed</option>
+      </select>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="d-flex justify-content-center">
+      <button type="submit" class="btn btn-primary">Update Task</button>
+    </div>
+  </form>
+</div>
